@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_value_notifier/src/dependency_injector/dependency_injector.dart';
-import 'package:provider_value_notifier/src/features/bottom/bottom_view.dart';
 import 'package:provider_value_notifier/src/features/settings/setting_notifier.dart';
+import 'package:provider_value_notifier/src/routes/routes.dart';
 import 'package:provider_value_notifier/src/storage/storage_service.dart';
 
 Future<void> main() async {
@@ -26,13 +26,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Provider ValueNotifier',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       themeMode: context.watch<ThemeNotifier>().value,
-      home: const BottomView(),
+      routerConfig: Routes.routes,
     );
   }
 }
