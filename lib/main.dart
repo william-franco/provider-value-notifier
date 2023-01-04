@@ -29,10 +29,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       title: 'Provider ValueNotifier',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
+      theme: ThemeData.light(
+        useMaterial3: true,
+      ),
+      darkTheme: ThemeData.dark(
+        useMaterial3: true,
+      ),
       themeMode: context.watch<ThemeNotifier>().value,
-      routerConfig: Routes.routes,
+      routerConfig: routesApp.routes,
     );
   }
 }

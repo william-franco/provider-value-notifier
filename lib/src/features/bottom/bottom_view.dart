@@ -24,21 +24,22 @@ class _BottomViewState extends State<BottomView> {
     final value = context.watch<BottomNotifier>().value;
     return Scaffold(
       body: tabs[value],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: value,
-        onTap: (int index) {
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: value,
+        animationDuration: const Duration(milliseconds: 600),
+        onDestinationSelected: (int index) {
           context.read<BottomNotifier>().updateTab(index);
         },
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
+        destinations: const <NavigationDestination>[
+          NavigationDestination(
             icon: Icon(Icons.add_home_outlined),
             label: 'Counter',
           ),
-          BottomNavigationBarItem(
+          NavigationDestination(
             icon: Icon(Icons.list_alt_outlined),
             label: 'List',
           ),
-          BottomNavigationBarItem(
+          NavigationDestination(
             icon: Icon(Icons.settings_outlined),
             label: 'Settings',
           ),
