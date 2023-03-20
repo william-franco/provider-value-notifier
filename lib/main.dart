@@ -3,19 +3,11 @@ import 'package:provider/provider.dart';
 import 'package:provider_value_notifier/src/dependency_injector/dependency_injector.dart';
 import 'package:provider_value_notifier/src/features/settings/setting_notifier.dart';
 import 'package:provider_value_notifier/src/routes/routes.dart';
-import 'package:provider_value_notifier/src/storage/storage_service.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  final themeNotifier = ThemeNotifier(StorageService());
-
-  await themeNotifier.loadTheme();
-
+void main() {
   runApp(
-    DependencyInjector(
-      themeNotifier: themeNotifier,
-      child: const MyApp(),
+    const DependencyInjector(
+      child: MyApp(),
     ),
   );
 }

@@ -12,7 +12,7 @@ class CounterNotifier extends ValueNotifier<int> {
   }
 
   void decrement() {
-    value--;
+    value > 0 ? value-- : 0;
     _debugNotifier();
     notifyListeners();
   }

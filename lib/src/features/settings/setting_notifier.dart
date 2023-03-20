@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:provider_value_notifier/src/storage/storage_service.dart';
 
 class ThemeNotifier extends ValueNotifier<ThemeMode> {
-  ThemeNotifier(this._storage) : super(_storage.theme);
+  ThemeNotifier(this._storage) : super(_storage.theme) {
+    _loadTheme();
+  }
 
   final StorageService _storage;
 
-  Future<void> loadTheme() async {
+  Future<void> _loadTheme() async {
     value = await _storage.getThemeMode();
     _debugNotifier();
     notifyListeners();

@@ -22,7 +22,7 @@ class CounterView extends StatelessWidget {
               ),
               Text(
                 '${context.watch<CounterNotifier>().value}',
-                style: Theme.of(context).textTheme.headline4,
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
             ],
           ),

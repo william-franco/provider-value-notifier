@@ -4,6 +4,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 class StorageService {
   var theme = ThemeMode.light;
 
+  StorageService() {
+    getThemeMode();
+  }
+
   Future<ThemeMode> getThemeMode() async {
     final storage = await SharedPreferences.getInstance();
 
