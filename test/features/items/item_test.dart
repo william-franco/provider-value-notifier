@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider_value_notifier/src/dependency_injector/dependency_injector.dart';
-import 'package:provider_value_notifier/src/features/items/item_view.dart';
+import 'package:provider_value_notifier/src/features/items/views/item_view.dart';
 
 void main() {
   testWidgets('Item initial', (WidgetTester tester) async {

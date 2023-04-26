@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider_value_notifier/src/dependency_injector/dependency_injector.dart';
-import 'package:provider_value_notifier/src/features/counter/counter_view.dart';
+import 'package:provider_value_notifier/src/features/counter/views/counter_view.dart';
 
 void main() {
   testWidgets('Counter initial', (WidgetTester tester) async {

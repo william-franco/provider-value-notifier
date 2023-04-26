@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_value_notifier/src/features/items/item_notifier.dart';
+import 'package:provider_value_notifier/src/features/items/view_models/item_view_model.dart';
 
 class ItemsView extends StatelessWidget {
   const ItemsView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final value = context.watch<ItemsNotifier>().value;
+    final value = context.watch<ItemsViewModel>().value;
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
@@ -16,7 +16,7 @@ class ItemsView extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.delete_forever_outlined),
             onPressed: () {
-              context.read<ItemsNotifier>().removeAllItems();
+              context.read<ItemsViewModel>().removeAllItems();
             },
           ),
         ],
@@ -24,10 +24,8 @@ class ItemsView extends StatelessWidget {
       body: SafeArea(
         child: value.isEmpty
             ? const Center(child: Text('The list is empty.'))
-            : ListView.separated(
+            : ListView.builder(
                 itemCount: value.length,
-                separatorBuilder: (context, index) =>
-                    const SizedBox(height: 8.0),
                 itemBuilder: (context, index) {
                   return ListTile(
                     leading: CircleAvatar(
@@ -46,7 +44,7 @@ class ItemsView extends StatelessWidget {
             key: const Key('addItemToList'),
             child: const Icon(Icons.add_outlined),
             onPressed: () {
-              context.read<ItemsNotifier>().addItemToList();
+              context.read<ItemsViewModel>().addItemToList();
             },
           ),
           const SizedBox(height: 8),
@@ -54,7 +52,7 @@ class ItemsView extends StatelessWidget {
             key: const Key('removeItemFromList'),
             child: const Icon(Icons.remove_outlined),
             onPressed: () {
-              context.read<ItemsNotifier>().removeItemFromList();
+              context.read<ItemsViewModel>().removeItemFromList();
             },
           ),
         ],

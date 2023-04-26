@@ -2,33 +2,33 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
-class ItemsNotifier extends ValueNotifier<List<int>> {
-  ItemsNotifier() : super([]);
+class ItemsViewModel extends ValueNotifier<List<int>> {
+  ItemsViewModel() : super([]);
 
   int _count = 0;
 
   void addItemToList() {
     _count++;
     value.add(_count);
-    _debugProvider();
+    _debug();
     notifyListeners();
   }
 
   void removeItemFromList() {
     _count > 0 ? _count-- : 0;
     value.isNotEmpty ? value.removeLast() : 0;
-    _debugProvider();
+    _debug();
     notifyListeners();
   }
 
   void removeAllItems() {
     _count = 0;
     value.clear();
-    _debugProvider();
+    _debug();
     notifyListeners();
   }
 
-  void _debugProvider() {
+  void _debug() {
     log('List item: ${value.length}');
   }
 }

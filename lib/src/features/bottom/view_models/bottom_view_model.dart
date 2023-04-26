@@ -2,16 +2,16 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
-class BottomNotifier extends ValueNotifier<int> {
-  BottomNotifier() : super(0);
+class BottomViewModel extends ValueNotifier<int> {
+  BottomViewModel() : super(0);
 
   void updateTab(int index) {
     value = index;
-    _debugNotifier();
+    _debug();
     notifyListeners();
   }
 
-  void _debugNotifier() {
+  void _debug() {
     log('Current tab: $value');
   }
 }

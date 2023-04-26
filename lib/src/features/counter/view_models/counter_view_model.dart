@@ -2,22 +2,22 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
-class CounterNotifier extends ValueNotifier<int> {
-  CounterNotifier() : super(0);
+class CounterViewModel extends ValueNotifier<int> {
+  CounterViewModel() : super(0);
 
   void increment() {
     value++;
-    _debugNotifier();
+    _debug();
     notifyListeners();
   }
 
   void decrement() {
     value > 0 ? value-- : 0;
-    _debugNotifier();
+    _debug();
     notifyListeners();
   }
 
-  void _debugNotifier() {
+  void _debug() {
     log('Counter: $value');
   }
 }

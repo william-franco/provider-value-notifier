@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_value_notifier/src/features/counter/counter_notifier.dart';
+import 'package:provider_value_notifier/src/features/counter/view_models/counter_view_model.dart';
 
 class CounterView extends StatelessWidget {
   const CounterView({super.key});
@@ -21,7 +21,7 @@ class CounterView extends StatelessWidget {
                 'You have pushed the button this many times:',
               ),
               Text(
-                '${context.watch<CounterNotifier>().value}',
+                '${context.watch<CounterViewModel>().value}',
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
             ],
@@ -36,7 +36,7 @@ class CounterView extends StatelessWidget {
             key: const Key('increment'),
             child: const Icon(Icons.add_outlined),
             onPressed: () {
-              context.read<CounterNotifier>().increment();
+              context.read<CounterViewModel>().increment();
             },
           ),
           const SizedBox(height: 8),
@@ -44,7 +44,7 @@ class CounterView extends StatelessWidget {
             key: const Key('decrement'),
             child: const Icon(Icons.remove_outlined),
             onPressed: () {
-              context.read<CounterNotifier>().decrement();
+              context.read<CounterViewModel>().decrement();
             },
           ),
         ],
