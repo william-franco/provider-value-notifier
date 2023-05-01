@@ -13,7 +13,7 @@ class BottomView extends StatefulWidget {
 }
 
 class _BottomViewState extends State<BottomView> {
-  final tabs = [
+  final listOfWidgets = [
     const CounterView(),
     const ItemsView(),
     const SettingView(),
@@ -23,12 +23,12 @@ class _BottomViewState extends State<BottomView> {
   Widget build(BuildContext context) {
     final value = context.watch<BottomViewModel>().value;
     return Scaffold(
-      body: tabs[value],
+      body: listOfWidgets.elementAt(value),
       bottomNavigationBar: NavigationBar(
         selectedIndex: value,
         animationDuration: const Duration(milliseconds: 600),
         onDestinationSelected: (int index) {
-          context.read<BottomViewModel>().updateTab(index);
+          context.read<BottomViewModel>().changeIndexBottom(index);
         },
         destinations: const <NavigationDestination>[
           NavigationDestination(
