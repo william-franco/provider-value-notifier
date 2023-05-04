@@ -1,5 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:provider/provider.dart';
+
+// Project imports:
 import 'package:provider_value_notifier/src/features/items/view_models/item_view_model.dart';
 
 class ItemsView extends StatelessWidget {

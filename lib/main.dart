@@ -1,5 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:provider/provider.dart';
+
+// Project imports:
 import 'package:provider_value_notifier/src/dependency_injector/dependency_injector.dart';
 import 'package:provider_value_notifier/src/features/settings/view_models/setting_view_model.dart';
 import 'package:provider_value_notifier/src/routes/routes.dart';
