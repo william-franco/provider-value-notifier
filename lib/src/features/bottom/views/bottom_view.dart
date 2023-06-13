@@ -33,7 +33,7 @@ class _BottomViewState extends State<BottomView> {
         selectedIndex: value,
         animationDuration: const Duration(milliseconds: 600),
         onDestinationSelected: (int index) {
-          context.read<BottomViewModel>().changeIndexBottom(index);
+          context.read<BottomViewModel>().changeIndexBottom(index: index);
         },
         destinations: const <NavigationDestination>[
           NavigationDestination(

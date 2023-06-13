@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 // Project imports:
+import 'package:provider_value_notifier/src/common_widgets/common_padding.dart';
 import 'package:provider_value_notifier/src/features/counter/view_models/counter_view_model.dart';
 
 class CounterView extends StatelessWidget {
@@ -17,20 +18,18 @@ class CounterView extends StatelessWidget {
         centerTitle: false,
         title: const Text('Counter'),
       ),
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text(
-                'You have pushed the button this many times:',
-              ),
-              Text(
-                '${context.watch<CounterViewModel>().value}',
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-            ],
-          ),
+      body: CommonPadding(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'You have pushed the button this many times:',
+            ),
+            Text(
+              '${context.watch<CounterViewModel>().value}',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+          ],
         ),
       ),
       floatingActionButton: Column(
