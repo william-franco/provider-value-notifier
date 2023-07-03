@@ -4,9 +4,11 @@ Application to manage states in flutter using Provider and ValueNotifier.
 
 Made with Flutter and some coffee cups. :D
 
+
 ## Author
 
 William Franco (Dev mobile).
+
 
 ## ScreenShots
 
@@ -17,6 +19,7 @@ William Franco (Dev mobile).
 | Image 4 | Image 5 | Image 6 |
 |----------|----------|----------|
 | ![App Screenshot](assets/screenshots/screen-4.png) | ![App Screenshot](assets/screenshots/screen-5.png) | ![App Screenshot](assets/screenshots/screen-6.png) |
+
 
 ## License
 
