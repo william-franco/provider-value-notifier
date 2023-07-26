@@ -16,18 +16,30 @@ void main() {
       expect(viewModel.value, 0);
     });
 
-    test('increment value', () {
+    test('value should be 1 when increment is called', () {
       viewModel.increment();
       expect(viewModel.value, 1);
     });
 
-    test('decrement value', () {
+    test('value should be 41 when increment is called', () {
+      viewModel.value = 40;
       viewModel.increment();
+      expect(viewModel.value, 41);
+    });
+
+    test('value should be 60 when decrement is called', () {
+      viewModel.value = 61;
+      viewModel.decrement();
+      expect(viewModel.value, 60);
+    });
+
+    test('value should be 0 when decrement is called', () {
+      viewModel.value = 1;
       viewModel.decrement();
       expect(viewModel.value, 0);
     });
 
-    test('value cannot be less than 0', () {
+    test('cannot decrement below zero', () {
       viewModel.decrement();
       expect(viewModel.value, 0);
     });
