@@ -5,20 +5,35 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 // Project imports:
-import 'package:provider_value_notifier/src/dependency_injector/locator_injector.dart';
 import 'package:provider_value_notifier/src/features/bottom/view_models/bottom_view_model.dart';
 import 'package:provider_value_notifier/src/features/counter/view_models/counter_view_model.dart';
 import 'package:provider_value_notifier/src/features/items/view_models/item_view_model.dart';
 import 'package:provider_value_notifier/src/features/settings/repositories/setting_repository.dart';
 import 'package:provider_value_notifier/src/features/settings/view_models/setting_view_model.dart';
+import 'package:provider_value_notifier/src/services/storage_service.dart';
 
-class DependencyInjector extends StatelessWidget {
+class DependencyInjector extends StatefulWidget {
   final Widget child;
 
   const DependencyInjector({
     super.key,
     required this.child,
   });
+
+  @override
+  State<DependencyInjector> createState() => _DependencyInjectorState();
+}
+
+class _DependencyInjectorState extends State<DependencyInjector> {
+  late StorageService storageService;
+  late SettingRepository settingRepository;
+
+  @override
+  void initState() {
+    super.initState();
+    storageService = StorageServiceImpl();
+    settingRepository = SettingRepositoryImpl(storageService: storageService);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +51,11 @@ class DependencyInjector extends StatelessWidget {
         ),
         ChangeNotifierProvider<SettingViewModel>(
           create: (context) => SettingViewModelImpl(
-            settingRepository: locator<SettingRepository>(),
+            settingRepository: settingRepository,
           ),
         ),
       ],
-      child: child,
+      child: widget.child,
     );
   }
 }

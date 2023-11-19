@@ -26,11 +26,11 @@ class _BottomViewState extends State<BottomView> {
 
   @override
   Widget build(BuildContext context) {
-    final value = context.watch<BottomViewModel>().value;
+    final viewModel = context.watch<BottomViewModel>();
     return Scaffold(
-      body: listOfWidgets.elementAt(value),
+      body: listOfWidgets.elementAt(viewModel.value.indexTab),
       bottomNavigationBar: NavigationBar(
-        selectedIndex: value,
+        selectedIndex: viewModel.value.indexTab,
         animationDuration: const Duration(milliseconds: 600),
         onDestinationSelected: (int index) {
           context.read<BottomViewModel>().changeIndexBottom(index: index);

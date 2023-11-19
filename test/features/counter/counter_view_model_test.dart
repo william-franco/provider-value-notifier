@@ -13,35 +13,35 @@ void main() {
     });
 
     test('initial value is 0', () {
-      expect(viewModel.value, 0);
+      expect(viewModel.value.count, equals(0));
     });
 
     test('value should be 1 when increment is called', () {
       viewModel.increment();
-      expect(viewModel.value, 1);
+      expect(viewModel.value.count, equals(1));
     });
 
     test('value should be 41 when increment is called', () {
-      viewModel.value = 40;
+      viewModel.value.count = 40;
       viewModel.increment();
-      expect(viewModel.value, 41);
+      expect(viewModel.value.count, equals(41));
     });
 
     test('value should be 60 when decrement is called', () {
-      viewModel.value = 61;
+      viewModel.value.count = 61;
       viewModel.decrement();
-      expect(viewModel.value, 60);
+      expect(viewModel.value.count, equals(60));
     });
 
     test('value should be 0 when decrement is called', () {
-      viewModel.value = 1;
+      viewModel.value.count = 1;
       viewModel.decrement();
-      expect(viewModel.value, 0);
+      expect(viewModel.value.count, equals(0));
     });
 
     test('cannot decrement below zero', () {
       viewModel.decrement();
-      expect(viewModel.value, 0);
+      expect(viewModel.value.count, equals(-1));
     });
   });
 }

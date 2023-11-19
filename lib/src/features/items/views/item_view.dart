@@ -13,7 +13,7 @@ class ItemsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final value = context.watch<ItemsViewModel>().value;
+    final viewModel = context.watch<ItemsViewModel>();
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
@@ -28,10 +28,10 @@ class ItemsView extends StatelessWidget {
         ],
       ),
       body: CommonPadding(
-        child: value.isEmpty
+        child: viewModel.value.items.isEmpty
             ? const Text('The list is empty.')
             : ListView.builder(
-                itemCount: value.length,
+                itemCount: viewModel.value.items.length,
                 itemBuilder: (context, index) {
                   return ListTile(
                     leading: CircleAvatar(
